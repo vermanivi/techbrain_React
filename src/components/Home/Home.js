@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
-import Banner from '..components/Banner/Banner';
-class Home extends Component
-{
-    state = {
+import Banner from '../Banner/Banner';
+
+class Home extends Component {
+    state={
         flag: true,
-        name: 'Nivish'
+        name: 'rahul'
     }
-    
-    updateName = () =>
-    {
+
+    updateName = ()=>{
+        //this.state.name="alpit"
+
+        // this.setState({
+        //     flag: !this.state.flag,
+        //     name: 'alpit'
+        // })
+
         this.setState({
-            name:'Rahul'
+                name: this.state.flag ? 'alpit':'rahul'
         })
     }
-    
-    render()
-    {
-        const { flag, name } = this.state;
-        console.log(">render");
-        console.log(">>>", flag, name);
-        return (
-            //thing in curly braces will keep changing
-            <div>
-                My name is {name}
-                <button onclick={this.updateName}>Change Name</button>
+
+    render() { 
+        const {flag, name} = this.state;
+        console.log(">>>>render ", this.state)
+        return ( 
+            <div style={{background:"green"}}>
+                <p>My name is {name} </p>
+                <button onClick={this.updateName}>Change Name</button>
                 
-                
-                
-                
-                <Banner />
-                </div>
-        )
-       
+                { true && <Banner username={name} address="Pune" />}
+           </div>
+        );
     }
 }
+ 
 export default Home;
